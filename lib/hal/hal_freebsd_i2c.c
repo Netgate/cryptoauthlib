@@ -2,7 +2,7 @@
  * \file
  * \brief ATCA Hardware abstraction layer for I2C on FreeBSD.
  *
- * \copyright (c) 2018 Rubicon Communications, LLC (Netgte).
+ * \copyright (c) 2018 Rubicon Communications, LLC (Netgate).
  *
  */
 
