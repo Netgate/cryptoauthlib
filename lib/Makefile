@@ -7,6 +7,7 @@ INCLUDES+=atca_status.h cryptoauthlib.h
 
 LDFLAGS=-L./basic -L./crypto -L./hal -L./host -whole-archive -static
 LDFLAGS+=-latca_basic -latca_crypto -latca_hal -latca_host --no-whole-archive
+LDFLAGS+=-lcompiler_rt
 CCFLAGS=-O2 -fPIC -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
 CCFLAGS+=-Wwrite-strings -Wredundant-decls -Wnested-externs -Winline
 CCFLAGS+=-I.
@@ -18,7 +19,8 @@ CCFLAGS+=-g
 all: libcryptoauth.so
 
 libcryptoauth.so: basic crypto hal host $(OBJS) $(INCLUDES)
-	$(LD) -shared -o libcryptoauth.so $(OBJS) $(LDFLAGS)
+	$(LD) -Bshareable --hash-style=both --enable-new-dtag \
+	    -o libcryptoauth.so $(OBJS) $(LDFLAGS)
 
 .c.o: $(INCLUDES)
 	$(CC) $(CCFLAGS) -c $<
