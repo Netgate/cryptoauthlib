@@ -3,9 +3,13 @@ OBJS=atca_hal.o hal_linux_timer.o
 INCLUDES=atca_hal.h atca_start_config.h atca_start_iface.h
 
 LDFLAGS=
-CCFLAGS=-O2 -fPIC -g -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
+CCFLAGS=-O2 -fPIC -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
 CCFLAGS+=-Wwrite-strings -Wredundant-decls -Wnested-externs -Winline
 CCFLAGS+=-I../
+
+.if defined(DEBUG)
+CCFLAGS+=-g
+.endif
 
 .if defined(__FreeBSD__) && defined(ATCA_HAL_I2C)
 CCFLAGS+=-DATCA_HAL_I2C -DMAX_I2C_BUSES=4

@@ -10,9 +10,13 @@ OBJS+=atca_basic_write.o atca_helpers.o
 INCLUDES=atca_basic.h atca_helpers.h
 
 LDFLAGS=
-CCFLAGS=-O2 -fPIC -g -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
+CCFLAGS=-O2 -fPIC -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
 CCFLAGS+=-Wwrite-strings -Wredundant-decls -Wnested-externs -Winline
 CCFLAGS+=-I../
+
+.if defined(DEBUG)
+CCFLAGS+=-g
+.endif
 
 .if defined(ATCA_HAL_I2C)
 CCFLAGS+=-DATCA_HAL_I2C

@@ -5,9 +5,13 @@ INCLUDES=atca_crypto_sw.h atca_crypto_sw_ecdsa.h atca_crypto_sw_rand.h
 INCLUDES+=atca_crypto_sw_sha1.h atca_crypto_sw_sha2.h
 
 LDFLAGS=
-CCFLAGS=-O2 -fPIC -g -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
+CCFLAGS=-O2 -fPIC -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
 CCFLAGS+=-Wwrite-strings -Wredundant-decls -Wnested-externs -Winline
 CCFLAGS+=-I../
+
+.if defined(DEBUG)
+CCFLAGS+=-g
+.endif
 
 all: libatca_crypto.a
 

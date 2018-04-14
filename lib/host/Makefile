@@ -3,9 +3,13 @@ OBJS=atca_host.o
 INCLUDES=atca_host.h
 
 LDFLAGS=
-CCFLAGS=-O2 -fPIC -g -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
+CCFLAGS=-O2 -fPIC -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
 CCFLAGS+=-Wwrite-strings -Wredundant-decls -Wnested-externs -Winline
 CCFLAGS+=-I../
+
+.if defined(DEBUG)
+CCFLAGS+=-g
+.endif
 
 all: libatca_host.a
 

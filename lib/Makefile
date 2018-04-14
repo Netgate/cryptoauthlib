@@ -7,9 +7,13 @@ INCLUDES+=atca_status.h cryptoauthlib.h
 
 LDFLAGS=-L./basic -L./crypto -L./hal -L./host -whole-archive -static
 LDFLAGS+=-latca_basic -latca_crypto -latca_hal -latca_host --no-whole-archive
-CCFLAGS=-O2 -fPIC -g -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
+CCFLAGS=-O2 -fPIC -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
 CCFLAGS+=-Wwrite-strings -Wredundant-decls -Wnested-externs -Winline
 CCFLAGS+=-I.
+
+.if defined(DEBUG)
+CCFLAGS+=-g
+.endif
 
 all: libcryptoauth.so
 
