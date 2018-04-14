@@ -197,9 +197,9 @@ ATCA_STATUS hal_i2c_init(void *hal, ATCAIfaceCfg *cfg)
 
             // assign default iic control device
             memset(buf, 0, sizeof(buf));
-            snprintf(buf, sizeof(buf) - 1, "/dev/iic%d\n", bus);
+            snprintf(buf, sizeof(buf) - 1, "/dev/iic%d", bus);
             i2c_hal_data[bus]->dev = strdup(buf);
-	    i2c_hal_data[bus]->fd = open(i2c_hal_data[bus]->dev, O_RDWR);
+            i2c_hal_data[bus]->fd = open(i2c_hal_data[bus]->dev, O_RDWR);
             if (i2c_hal_data[bus]->fd == -1)
 		return ATCA_COMM_FAIL;
 
@@ -257,7 +257,7 @@ ATCA_STATUS hal_i2c_send(ATCAIface iface, uint8_t *txdata, int txlength)
     txlength++;         //!< count Word Address byte towards txlength
     msg[0].len = txlength;	//!< update the iic tx buffer size.
 
-    if (ioctl(i2c_hal_data[bus]->fd, I2CRDWR, &iicmsg) == 0)
+    if (ioctl(i2c_hal_data[bus]->fd, I2CRDWR, &iicmsg) == -1)
 	return ATCA_TX_TIMEOUT;
 
     return ATCA_SUCCESS;
@@ -335,8 +335,11 @@ ATCA_STATUS hal_i2c_wake(ATCAIface iface)
     memset(&data, 0, sizeof(data));         
     iicmsg.msgs = &msg;                     
     iicmsg.nmsgs = 1;                       
-    if (ioctl(i2c_hal_data[bus]->fd, I2CRDWR, &iicmsg) == -1)   
-	return ATCA_WAKE_FAILED;
+    /*
+     * We do not check for an error here because this call is expected to fail.
+     * The chip will not ACK its address when it is sleeping.
+     */
+    ioctl(i2c_hal_data[bus]->fd, I2CRDWR, &iicmsg);
 
     // Wait tWHI + tWLO
     atca_delay_us(cfg->wake_delay);
