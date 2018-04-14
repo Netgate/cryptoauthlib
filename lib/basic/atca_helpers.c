@@ -34,7 +34,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#ifdef ATCAPRINTF
 
 /* Ruleset:
     Index   -   Meaning
@@ -46,6 +45,7 @@ uint8_t atcab_b64rules_default[4]   = { '+', '/', '=', 64 };
 uint8_t atcab_b64rules_mime[4]      = { '+', '/', '=', 76 };
 uint8_t atcab_b64rules_urlsafe[4]   = { '-', '_', 0, 0 };
 
+#ifdef ATCAPRINTF
 
 /** \brief Function that convert a binary buffer to a hex string suitable for human reading
  *  \param[in]  binary input buffer to convert
