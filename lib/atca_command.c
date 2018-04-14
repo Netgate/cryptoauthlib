@@ -46,7 +46,7 @@
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atCheckMAC(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atCheckMAC(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_CHECKMAC;
@@ -62,7 +62,7 @@ ATCA_STATUS atCheckMAC(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS on success, otherwise an error code.
  */
-ATCA_STATUS atCounter(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atCounter(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_COUNTER;
@@ -79,7 +79,7 @@ ATCA_STATUS atCounter(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] has_mac  hasMAC determines if MAC data is present in the packet input
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atDeriveKey(ATCACommand ca_cmd, ATCAPacket *packet, bool has_mac)
+ATCA_STATUS atDeriveKey(ATCACommand ca_cmd __unused, ATCAPacket *packet, bool has_mac)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_DERIVE_KEY;
@@ -105,7 +105,7 @@ ATCA_STATUS atDeriveKey(ATCACommand ca_cmd, ATCAPacket *packet, bool has_mac)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atECDH(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atECDH(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -123,7 +123,7 @@ ATCA_STATUS atECDH(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] is_no_mac_key  Should be true if GenDig is being run on a slot that has its SlotConfig.NoMac bit set
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atGenDig(ATCACommand ca_cmd, ATCAPacket *packet, bool is_no_mac_key)
+ATCA_STATUS atGenDig(ATCACommand ca_cmd __unused, ATCAPacket *packet, bool is_no_mac_key)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_GENDIG;
@@ -152,7 +152,7 @@ ATCA_STATUS atGenDig(ATCACommand ca_cmd, ATCAPacket *packet, bool is_no_mac_key)
  * \param[in] packet    pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atGenKey(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atGenKey(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_GENKEY;
@@ -177,7 +177,7 @@ ATCA_STATUS atGenKey(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atHMAC(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atHMAC(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -194,7 +194,7 @@ ATCA_STATUS atHMAC(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atInfo(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atInfo(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -211,7 +211,7 @@ ATCA_STATUS atInfo(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atLock(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atLock(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -228,7 +228,7 @@ ATCA_STATUS atLock(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atMAC(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atMAC(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -254,7 +254,7 @@ ATCA_STATUS atMAC(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet   pointer to the packet containing the command being built
  * \return ATCA_SUCCESS on success, otherwise an error code.
  */
-ATCA_STATUS atNonce(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atNonce(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
     // Set the opcode & parameters
     // variable packet size
@@ -297,7 +297,7 @@ ATCA_STATUS atNonce(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atPause(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atPause(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_PAUSE;
@@ -313,7 +313,7 @@ ATCA_STATUS atPause(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atPrivWrite(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atPrivWrite(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_PRIVWRITE;
@@ -329,7 +329,7 @@ ATCA_STATUS atPrivWrite(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atRandom(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atRandom(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -346,7 +346,7 @@ ATCA_STATUS atRandom(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atRead(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atRead(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -372,7 +372,7 @@ ATCA_STATUS atRead(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atSecureBoot(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atSecureBoot(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
     packet->opcode = ATCA_SECUREBOOT;
     packet->txsize = ATCA_CMD_SIZE_MIN;
@@ -415,7 +415,7 @@ ATCA_STATUS atSecureBoot(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] write_context_size  the length of the sha write_context data
  * \return ATCA_SUCCESS on success, otherwise an error code.
  */
-ATCA_STATUS atSHA(ATCACommand ca_cmd, ATCAPacket *packet, uint16_t write_context_size)
+ATCA_STATUS atSHA(ATCACommand ca_cmd __unused, ATCAPacket *packet, uint16_t write_context_size)
 {
 
     // Set the opcode & parameters
@@ -473,7 +473,7 @@ ATCA_STATUS atSHA(ATCACommand ca_cmd, ATCAPacket *packet, uint16_t write_context
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atSign(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atSign(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -492,7 +492,7 @@ ATCA_STATUS atSign(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atUpdateExtra(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atUpdateExtra(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -509,7 +509,7 @@ ATCA_STATUS atUpdateExtra(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS on success, otherwise an error code.
  */
-ATCA_STATUS atVerify(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atVerify(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
 
     // Set the opcode & parameters
@@ -567,7 +567,7 @@ ATCA_STATUS atVerify(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] has_mac  Flag to indicate whether a mac is present or not
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atWrite(ATCACommand ca_cmd, ATCAPacket *packet, bool has_mac)
+ATCA_STATUS atWrite(ATCACommand ca_cmd __unused, ATCAPacket *packet, bool has_mac)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_WRITE;
@@ -596,7 +596,7 @@ ATCA_STATUS atWrite(ATCACommand ca_cmd, ATCAPacket *packet, bool has_mac)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atAES(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atAES(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_AES;
@@ -620,7 +620,7 @@ ATCA_STATUS atAES(ATCACommand ca_cmd, ATCAPacket *packet)
  * \param[in] packet  pointer to the packet containing the command being built
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atSelfTest(ATCACommand ca_cmd, ATCAPacket *packet)
+ATCA_STATUS atSelfTest(ATCACommand ca_cmd __unused, ATCAPacket *packet)
 {
     // Set the opcode & parameters
     packet->opcode = ATCA_SELFTEST;
@@ -643,7 +643,7 @@ ATCA_STATUS atSelfTest(ATCACommand ca_cmd, ATCAPacket *packet)
  *                             be NULL if not required.
  * \return ATCA_SUCCESS
  */
-ATCA_STATUS atKDF(ATCACommand ca_cmd, ATCAPacket *packet, uint16_t* out_data_size, uint16_t* out_nonce_size)
+ATCA_STATUS atKDF(ATCACommand ca_cmd __unused, ATCAPacket *packet, uint16_t* out_data_size, uint16_t* out_nonce_size)
 {
     uint8_t target;
     uint32_t details;

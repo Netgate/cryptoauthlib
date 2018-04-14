@@ -104,7 +104,7 @@ void CL_hashUpdate(CL_HashContext *ctx, const U8 *src, int nbytes)
         if (i == 64)
         {
             // This seems to be much faster on IAR than memcpy().
-            *(Buf64*)(ctx->buf) = *(Buf64*)src;
+            *(Buf64*)(ctx->buf) = *(const Buf64*)src;
         }
         else
         {
