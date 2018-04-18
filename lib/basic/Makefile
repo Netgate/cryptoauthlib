@@ -18,6 +18,10 @@ CCFLAGS+=-I../
 CCFLAGS+=-g
 .endif
 
+.if defined(ATCA_PRINTF) || defined(ATCAPRINTF)
+CCFLAGS+=-DATCAPRINTF
+.endif
+
 .if defined(ATCA_HAL_I2C)
 CCFLAGS+=-DATCA_HAL_I2C
 .endif
