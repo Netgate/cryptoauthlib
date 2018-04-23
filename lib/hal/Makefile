@@ -1,5 +1,5 @@
 
-OBJS=atca_hal.o hal_linux_timer.o
+OBJS=atca_hal.o hal_linux_os.o hal_linux_timer.o
 INCLUDES=atca_hal.h atca_start_config.h atca_start_iface.h
 
 LDFLAGS=
