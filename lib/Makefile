@@ -1,3 +1,4 @@
+PREFIX?=	/usr/local
 
 OBJS=atca_cfgs.o
 OBJS+=atca_command.o
@@ -115,16 +116,16 @@ clean:
 	rm -f libcryptoauth.so $(OBJS)
 
 install: all
-	install -m 0644 libcryptoauth.so $(DESTDIR)$(PREFIX)/usr/local/lib
-	install -dm 0755 $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib
-	install -m 0644 $(INCLUDES) $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/
-	install -dm 0755 $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/atcacert
-	install -m 0644 $(ATCACERT_INCLUDES) $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/atcacert/
-	install -dm 0755 $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/basic
-	install -m 0644 $(BASIC_INCLUDES) $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/basic/
-	install -dm 0755 $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/crypto
-	install -m 0644 $(CRYPTO_INCLUDES) $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/crypto/
-	install -dm 0755 $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/hal
-	install -m 0644 $(HAL_INCLUDES) $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/hal/
-	install -dm 0755 $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/host
-	install -m 0644 $(HOST_INCLUDES) $(DESTDIR)$(PREFIX)/usr/local/include/cryptoauthlib/host/
+	install -m 0644 libcryptoauth.so $(DESTDIR)$(PREFIX)/lib
+	install -dm 0755 $(DESTDIR)$(PREFIX)/include/cryptoauthlib
+	install -m 0644 $(INCLUDES) $(DESTDIR)$(PREFIX)/include/cryptoauthlib/
+	install -dm 0755 $(DESTDIR)$(PREFIX)/include/cryptoauthlib/atcacert
+	install -m 0644 $(ATCACERT_INCLUDES) $(DESTDIR)$(PREFIX)/include/cryptoauthlib/atcacert/
+	install -dm 0755 $(DESTDIR)$(PREFIX)/include/cryptoauthlib/basic
+	install -m 0644 $(BASIC_INCLUDES) $(DESTDIR)$(PREFIX)/include/cryptoauthlib/basic/
+	install -dm 0755 $(DESTDIR)$(PREFIX)/include/cryptoauthlib/crypto
+	install -m 0644 $(CRYPTO_INCLUDES) $(DESTDIR)$(PREFIX)/include/cryptoauthlib/crypto/
+	install -dm 0755 $(DESTDIR)$(PREFIX)/include/cryptoauthlib/hal
+	install -m 0644 $(HAL_INCLUDES) $(DESTDIR)$(PREFIX)/include/cryptoauthlib/hal/
+	install -dm 0755 $(DESTDIR)$(PREFIX)/include/cryptoauthlib/host
+	install -m 0644 $(HOST_INCLUDES) $(DESTDIR)$(PREFIX)/include/cryptoauthlib/host/
