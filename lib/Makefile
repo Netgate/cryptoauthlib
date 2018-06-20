@@ -108,7 +108,7 @@ all: libcryptoauth.so
 libcryptoauth.so: $(OBJS) $(ALL_INCLUDES)
 	$(CC) -shared -o libcryptoauth.so $(OBJS) $(LDFLAGS)
 
-.c.o: $(INCLUDES)
+.c.o: $(ALL_INCLUDES)
 	$(CC) $(CCFLAGS) -o $@ -c $<
 
 clean:
