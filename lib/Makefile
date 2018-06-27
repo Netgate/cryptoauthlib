@@ -116,7 +116,7 @@ clean:
 	rm -f libcryptoauth.so $(OBJS)
 
 install: all
-	install -m 0644 libcryptoauth.so $(DESTDIR)$(PREFIX)/lib
+	install -m 0644 -s libcryptoauth.so $(DESTDIR)$(PREFIX)/lib
 	install -dm 0755 $(DESTDIR)$(PREFIX)/include/cryptoauthlib
 	install -m 0644 $(INCLUDES) $(DESTDIR)$(PREFIX)/include/cryptoauthlib/
 	install -dm 0755 $(DESTDIR)$(PREFIX)/include/cryptoauthlib/atcacert
