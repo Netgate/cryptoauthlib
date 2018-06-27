@@ -90,14 +90,14 @@ CCFLAGS+=-g
 CCFLAGS+=-DATCAPRINTF
 .endif
 
-.if defined(ATCA_HAL_I2C)
-CCFLAGS+=-DATCA_HAL_I2C
-.endif
-
 .if defined(__FreeBSD__) && defined(ATCA_HAL_I2C)
 CCFLAGS+=-DATCA_HAL_I2C -DMAX_I2C_BUSES=4
 OBJS+=hal/hal_freebsd_i2c.o
-INCLUDES+=hal/hal_freebsd_i2c.h
+HAL_INCLUDES+=hal/hal_freebsd_i2c.h
+.else
+.if defined(ATCA_HAL_I2C)
+CCFLAGS+=-DATCA_HAL_I2C
+.endif
 .endif
 
 
