@@ -117,6 +117,9 @@ libcryptoauth.a: $(OBJS) $(ALL_INCLUDES)
 
 clean:
 	rm -f libcryptoauth.so libcryptoauth.a $(OBJS)
+.if !defined(__FreeBSD__) || !defined(ATCA_HAL_I2C)
+	rm -f hal/hal_freebsd_i2c.o
+.endif
 
 install: all
 	install -m 0644 libcryptoauth.a $(DESTDIR)$(PREFIX)/lib
