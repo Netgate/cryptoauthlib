@@ -38,7 +38,7 @@ int atcacert_date_enc(atcacert_date_format_t   format,
                       uint8_t*                 formatted_date,
                       size_t*                  formatted_date_size)
 {
-    if (timestamp == NULL || formatted_date_size == NULL || format < 0 || format >= sizeof(ATCACERT_DATE_FORMAT_SIZES) / sizeof(ATCACERT_DATE_FORMAT_SIZES[0]))
+    if (timestamp == NULL || formatted_date_size == NULL || (int)format < 0 || format >= sizeof(ATCACERT_DATE_FORMAT_SIZES) / sizeof(ATCACERT_DATE_FORMAT_SIZES[0]))
     {
         return ATCACERT_E_BAD_PARAMS;
     }
@@ -72,7 +72,7 @@ int atcacert_date_dec(atcacert_date_format_t format,
                       size_t                 formatted_date_size,
                       atcacert_tm_utc_t*     timestamp)
 {
-    if (formatted_date == NULL || timestamp == NULL || format < 0 || format >= sizeof(ATCACERT_DATE_FORMAT_SIZES) / sizeof(ATCACERT_DATE_FORMAT_SIZES[0]))
+    if (formatted_date == NULL || timestamp == NULL || (int)format < 0 || format >= sizeof(ATCACERT_DATE_FORMAT_SIZES) / sizeof(ATCACERT_DATE_FORMAT_SIZES[0]))
     {
         return ATCACERT_E_BAD_PARAMS;
     }
@@ -98,7 +98,7 @@ int atcacert_date_dec(atcacert_date_format_t format,
 int atcacert_date_get_max_date(atcacert_date_format_t format, atcacert_tm_utc_t* timestamp)
 {
 
-    if (timestamp == NULL || format < 0 || format >= sizeof(ATCACERT_DATE_FORMAT_SIZES) / sizeof(ATCACERT_DATE_FORMAT_SIZES[0]))
+    if (timestamp == NULL || (int)format < 0 || format >= sizeof(ATCACERT_DATE_FORMAT_SIZES) / sizeof(ATCACERT_DATE_FORMAT_SIZES[0]))
     {
         return ATCACERT_E_BAD_PARAMS;
     }
@@ -1062,7 +1062,7 @@ int atcacert_date_dec_compcert(const uint8_t          enc_dates[3],
      * Minutes and seconds are always zero.
      */
 
-    if (enc_dates == NULL || issue_date == NULL || expire_date == NULL || expire_date_format < 0 || expire_date_format >= sizeof(ATCACERT_DATE_FORMAT_SIZES) / sizeof(ATCACERT_DATE_FORMAT_SIZES[0]))
+    if (enc_dates == NULL || issue_date == NULL || expire_date == NULL || (int)expire_date_format < 0 || expire_date_format >= sizeof(ATCACERT_DATE_FORMAT_SIZES) / sizeof(ATCACERT_DATE_FORMAT_SIZES[0]))
     {
         return ATCACERT_E_BAD_PARAMS;
     }
