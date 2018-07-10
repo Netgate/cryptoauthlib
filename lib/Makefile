@@ -104,18 +104,22 @@ CCFLAGS+=-DATCA_HAL_I2C
 ALL_INCLUDES=$(INCLUDES) $(ATCACERT_INCLUDES) $(BASIC_INCLUDES)
 ALL_INCLUDES+=$(CRYPTO_INCLUDES) $(HAL_INCLUDES) $(HOST_INCLUDES)
 
-all: libcryptoauth.so
+all: libcryptoauth.so libcryptoauth.a
 
 libcryptoauth.so: $(OBJS) $(ALL_INCLUDES)
 	$(CC) -shared -o libcryptoauth.so $(OBJS) $(LDFLAGS)
+
+libcryptoauth.a: $(OBJS) $(ALL_INCLUDES)
+	$(AR) rcs libcryptoauth.a $(OBJS)
 
 .c.o: $(ALL_INCLUDES)
 	$(CC) $(CCFLAGS) -o $@ -c $<
 
 clean:
-	rm -f libcryptoauth.so $(OBJS)
+	rm -f libcryptoauth.so libcryptoauth.a $(OBJS)
 
 install: all
+	install -m 0644 libcryptoauth.a $(DESTDIR)$(PREFIX)/lib
 	install -m 0644 -s libcryptoauth.so $(DESTDIR)$(PREFIX)/lib
 	install -dm 0755 $(DESTDIR)$(PREFIX)/include/cryptoauthlib
 	install -m 0644 $(INCLUDES) $(DESTDIR)$(PREFIX)/include/cryptoauthlib/
