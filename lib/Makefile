@@ -80,14 +80,10 @@ HOST_INCLUDES+=host/atca_host.h
 LDFLAGS=
 CCFLAGS=-O2 -fPIC -Wall -Wextra -Wshadow -Wcast-qual -Wcast-align
 CCFLAGS+=-Wwrite-strings -Wredundant-decls -Wnested-externs -Winline
-CCFLAGS+=-I.
+CCFLAGS+=-I. -DATCAPRINTF
 
 .if defined(DEBUG)
 CCFLAGS+=-g
-.endif
-
-.if defined(ATCA_PRINTF) || defined(ATCAPRINTF)
-CCFLAGS+=-DATCAPRINTF
 .endif
 
 .if defined(__FreeBSD__) && defined(ATCA_HAL_I2C)
@@ -100,6 +96,15 @@ CCFLAGS+=-DATCA_HAL_I2C
 .endif
 .endif
 
+.if defined(__FreeBSD__) && defined(ATCA_HAL_KIT_HID)
+CCFLAGS+=-DATCA_HAL_KIT_HID
+LDFLAGS+=-lusb
+OBJS+=hal/hal_freebsd_kit_hid.o
+OBJS+=hal/kit_protocol.o
+HAL_INCLUDES+=hal/hal_freebsd_kit_hid.h
+HAL_INCLUDES+=hal/kit_phy.h
+HAL_INCLUDES+=hal/kit_protocol.h
+.endif
 
 ALL_INCLUDES=$(INCLUDES) $(ATCACERT_INCLUDES) $(BASIC_INCLUDES)
 ALL_INCLUDES+=$(CRYPTO_INCLUDES) $(HAL_INCLUDES) $(HOST_INCLUDES)

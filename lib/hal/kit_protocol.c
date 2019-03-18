@@ -126,7 +126,7 @@ ATCA_STATUS kit_send(ATCAIface iface, const uint8_t* txdata, int txlength)
     char* pkitbuf = NULL;
 
     // Check the pointers
-    if ((txdata == NULL))
+    if (txdata == NULL)
     {
         return ATCA_BAD_PARAM;
     }
@@ -395,7 +395,7 @@ ATCA_STATUS kit_wrap_cmd(const uint8_t* txdata, int txlen, char* pkitcmd, int* n
  * \param[in] datasize size of the pointer to the binary data buffer
  * \return ATCA_SUCCESS on success, otherwise an error code.
  */
-ATCA_STATUS kit_parse_rsp(const char* pkitbuf, int nkitbuf, uint8_t* kitstatus, uint8_t* rxdata, int* datasize)
+ATCA_STATUS kit_parse_rsp(const char* pkitbuf, int nkitbuf __unused, uint8_t* kitstatus, uint8_t* rxdata, int* datasize)
 {
     ATCA_STATUS status = ATCA_SUCCESS;
     int statusId = 0;
@@ -412,7 +412,7 @@ ATCA_STATUS kit_parse_rsp(const char* pkitbuf, int nkitbuf, uint8_t* kitstatus, 
     }
 
     // Next get the binary data bytes
-    endDataPtr = strchr((char*)pkitbuf, ')');
+    endDataPtr = strchr((const char*)pkitbuf, ')');
     if (endDataPtr < (&pkitbuf[dataId]))
     {
         return ATCA_GEN_FAIL;
