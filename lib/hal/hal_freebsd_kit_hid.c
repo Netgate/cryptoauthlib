@@ -200,8 +200,7 @@ ATCA_STATUS kit_phy_send(ATCAIface iface, uint8_t* txdata, int txlength)
         return ATCA_BAD_PARAM;
     }
 
-    if (pHid->kits[cfg->atcahid.idx].fd == -1 ||
-        txlength > pHid->kits[cfg->atcahid.idx].psize)
+    if (pHid->kits[cfg->atcahid.idx].fd == -1 || txlength > HID_PACKET_MAX_TX)
     {
         return ATCA_COMM_FAIL;
     }

@@ -19,6 +19,7 @@
 // Kit USB defines
 #define HID_DEVICES_MAX     10      //! Maximum number of supported Kit USB devices
 #define HID_PACKET_MAX      256     //! Maximum number of bytes for a HID send/receive packet (typically 64)
+#define HID_PACKET_MAX_TX   0x7fff  //! Absolute maximum number of bytes for a HID send
 #define	HID_PACKET_SIZE     64      //! Default packet size
 #define HID_VENDORID        0x03eb
 #define HID_PRODUCTID       0x2312
